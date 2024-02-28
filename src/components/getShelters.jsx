@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useEffect, useState } from 'react';
 import ShelterService from '../services/service';
-import { Card, Button } from 'react-bootstrap'; 
+import { Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
@@ -27,8 +27,9 @@ const GetAllShelters = () => {
     const handleDelete = async (shelterId) => {
         try {
             await ShelterService.deleteShelter(shelterId);
-            const updatedShelters = await ShelterService.fetchSheltersData();
+            const updatedShelters = shelterList.filter(shelter => shelter._id !== shelterId);
             setShelterList(updatedShelters);
+            console.log(`Shelter with ID ${shelterId} deleted.`);
         } catch (error) {
             console.error('Failed to delete shelter:', error);
             setError('Failed to delete shelter.');

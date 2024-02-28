@@ -33,10 +33,22 @@ const fetchShelterById = async (shelterId) => {
     }
 };
 
+const deleteShelter = async (shelterId) => {
+    try {
+        const response = await http.delete(`/shelters/${shelterId}`);
+        console.log('Shelter deleted successfully:', response.data);
+        return response.data; // Or true to indicate success
+    } catch (error) {
+        console.error(`Error deleting shelter with ID ${shelterId}:`, error);
+        throw error;
+    }
+};
+
 const ShelterService ={
     fetchSheltersData,
     addShelter,
-    fetchShelterById
+    fetchShelterById,
+    deleteShelter,
 }
 
 
