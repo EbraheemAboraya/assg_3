@@ -49,7 +49,7 @@ const GetAllShelters = () => {
                                 <p><strong>Capacity:</strong> {shelter.capacity}</p>
                             </div>
                             <div className="action-buttons">
-                                <Link to={`/update-shelter/${shelter._id}`}>
+                                <Link to={`/update/${shelter._id}`}>
                                     <Button variant="primary">Update</Button>
                                 </Link>
                                 <Button variant="danger" onClick={() => handleDelete(shelter._id)}>Delete</Button>

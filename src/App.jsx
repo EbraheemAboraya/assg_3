@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GetAllShelters from './components/getShelters';
 import ShelterManagement from './components/main';
 import AddShelter from './components/addShelter';
-import GetShelterById from './components/getshelterid'
+import GetShelterById from './components/getshelterid';
+import UpdateShelter from './components/updateShelter';
 import './App.css';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/shelter" element={<GetAllShelters />} />
           <Route path="shelter/add" element={<AddShelter />} />
           <Route path="/shelter/:shelterId" element={<GetShelterById />} />
+          <Route path="/update/:shelterId" element={<UpdateShelter />} />
         </Routes>
       </div>
     </Router>

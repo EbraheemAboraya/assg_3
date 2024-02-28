@@ -44,13 +44,24 @@ const deleteShelter = async (shelterId) => {
     }
 };
 
+const updateShelter = async (shelterId, shelterData) => {
+    try {
+        const response = await http.put(`/shelters/${shelterId}`, shelterData);
+        console.log('Shelter updated successfully:', response.data);
+        return response.data;
+    } catch (error) {
+        console.error(`Error updating shelter with ID ${shelterId}:`, error);
+        throw error;
+    }
+};
+
 const ShelterService ={
     fetchSheltersData,
     addShelter,
     fetchShelterById,
     deleteShelter,
+    updateShelter,
 }
-
 
 export default ShelterService ;
 
