@@ -1,7 +1,10 @@
+// Import useParams from react-router-dom
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ShelterService from '../services/service';
 
-const ShelterById = ({ shelterId }) => {
+const ShelterById = () => {
+    const { shelterId } = useParams(); // Access the shelterId parameter from the URL
     const [shelter, setShelter] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
