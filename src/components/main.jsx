@@ -11,7 +11,7 @@ function ShelterManagement() {
                     <Link to="/shelter">
                         <button className="shelter-button">View List of Shelters</button>
                     </Link>
-                    <Link to="/add-shelter">
+                    <Link to="/add">
                         <button className="shelter-button">Add Shelter</button>
                     </Link>
                 </div>

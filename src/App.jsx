@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GetAllShelters from './components/getShelters';
 import ShelterManagement from './components/main';
+import AddShelter from './components/addShelter';
 
 import './App.css';
 
@@ -12,7 +13,7 @@ const App = () => {
         <Routes>
         <Route path="/" element={<ShelterManagement />} />   
         <Route path="/shelter" element={<GetAllShelters />} /> 
-        <Route path="/add" element={<GetAllShelters />} />        
+        <Route path="/add" element={<AddShelter />} />        
 
         </Routes>
       </div>
