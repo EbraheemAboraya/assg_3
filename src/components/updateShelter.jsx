@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ShelterService from '../services/service';
-import { Typography, TextField, Button, Card, CardContent, Box } from '@mui/material';
+import { Typography, TextField, Button, Card, CardContent } from '@mui/material';
 
 const UpdateShelterForm = () => {
     const { shelterId } = useParams();
@@ -47,11 +47,9 @@ const UpdateShelterForm = () => {
     };
 
     return (
-
-        <Card variant="outlined">
+        <Card variant="outlined" style={{ backgroundColor: '#EBEDEE', border: 'none' }}>
             <CardContent>
                 <Typography variant="h2">Update Shelter</Typography>
-                {error && <Typography color="error">{error}</Typography>}
                 <form onSubmit={handleSubmit}>
                     <div style={{ marginTop: '20px' }}>
                         <TextField
@@ -78,7 +76,7 @@ const UpdateShelterForm = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    <div style={{ marginTop: '15px' }}>
+                    <div style={{ marginTop: '20px' }}>
                         <Button type="submit" variant="contained">Update Shelter</Button>
                     </div>
                 </form>
@@ -86,5 +84,4 @@ const UpdateShelterForm = () => {
         </Card>
     );
 };
-
 export default UpdateShelterForm;

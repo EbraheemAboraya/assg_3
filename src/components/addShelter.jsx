@@ -32,7 +32,7 @@ const AddShelterForm = () => {
         }
     };
     return (
-        <div style={{ maxWidth: '400px', margin: '0 auto', marginTop: '50px', background: 'white' }}>
+        <div style={{ maxWidth: '400px', margin: '0 auto', marginTop: '50px' }}>
             <h2>Add Shelter</h2>
             <form onSubmit={handleSubmit}>
                 <TextField
@@ -62,8 +62,9 @@ const AddShelterForm = () => {
                     onChange={handleInputChange}
                     fullWidth
                     margin="normal"
+
                 />
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained" color="primary" style={{ marginTop: '40px' }}>
                     Add Shelter
                 </Button>
             </form>

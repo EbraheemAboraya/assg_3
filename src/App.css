@@ -45,7 +45,7 @@
 }
 
 body {
-  background-color: #f0f0f0;
+  background-color: #EBEDEE;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -56,14 +56,10 @@ body {
 /* //Main css */
 .shelter-management-header {
   background-color: #005f73;
-  /* A deep, comforting blue */
   color: #ffffff;
-  /* White text for contrast */
   padding: 20px;
   text-align: center;
-  /* Center the text */
   border-bottom: 3px solid #ee6c4d;
-  /* An alerting, but not alarming, accent color */
 }
 
 .shelter-management-header h1 {
@@ -79,7 +75,6 @@ body {
 
 .shelter-button {
   background-color: #ee6c4d;
-  /* Accent color for buttons */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -91,17 +86,14 @@ body {
 
 .shelter-button:hover {
   background-color: #3d5a80;
-  /* Darker shade for hover effect */
 }
 
 .shelter-link {
   text-decoration: none;
-  /* Removes underline from links */
 }
 
 .button-section {
   text-align: center;
-  /* Center buttons */
 }
 
 
