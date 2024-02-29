@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ShelterService from '../services/service';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const AddShelterForm = () => {
+    const navigate = useNavigate();
+
     const initialShelterData = {
         location: '',
         title: '',
@@ -21,50 +25,47 @@ const AddShelterForm = () => {
         try {
             await ShelterService.addShelter(shelterData);
             console.log('Shelter added successfully!');
-            setShelterData(initialShelterData); // Reset form fields
+            setShelterData(initialShelterData);
+            navigate('/');
         } catch (error) {
             console.error('Failed to add shelter:', error);
         }
     };
-
     return (
-        <div className="container mt-5">
+        <div style={{ maxWidth: '400px', margin: '0 auto', marginTop: '50px', background: 'white' }}>
             <h2>Add Shelter</h2>
             <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="location" className="form-label">Location:</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="location"
-                        name="location"
-                        value={shelterData.location}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="title" className="form-label">Title:</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="title"
-                        name="title"
-                        value={shelterData.title}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="capacity" className="form-label">Capacity:</label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        id="capacity"
-                        name="capacity"
-                        value={shelterData.capacity}
-                        onChange={handleInputChange}
-                    />
-                </div>
-                <button type="submit" className="btn btn-primary">Add Shelter</button>
+                <TextField
+                    label="Location"
+                    variant="outlined"
+                    name="location"
+                    value={shelterData.location}
+                    onChange={handleInputChange}
+                    fullWidth
+                    margin="normal"
+                />
+                <TextField
+                    label="Title"
+                    variant="outlined"
+                    name="title"
+                    value={shelterData.title}
+                    onChange={handleInputChange}
+                    fullWidth
+                    margin="normal"
+                />
+                <TextField
+                    label="Capacity"
+                    variant="outlined"
+                    type="number"
+                    name="capacity"
+                    value={shelterData.capacity}
+                    onChange={handleInputChange}
+                    fullWidth
+                    margin="normal"
+                />
+                <Button type="submit" variant="contained" color="primary">
+                    Add Shelter
+                </Button>
             </form>
         </div>
     );

@@ -5,21 +5,22 @@ import '../App.css';
 function ShelterManagement() {
     return (
         <div>
-            <header>
-                <h1>Shelter Management</h1>
-                <div>
-                    <Link to="/shelter">
-                        <button className="shelter-button">View List of Shelters</button>
-                    </Link>
-                    <Link to="/shelter/add">
-                        <button className="shelter-button">Add Shelter</button>
-                    </Link>
+            <div className="shelter-management-container">
+                <div className="header">
+                    <h1>Welcome to Emergency Shelter Management</h1>
+                    <h3>Here you can find and manage emergency shelters for people in need during crises or disasters.</h3>
                 </div>
-            </header>
+                <div className="main-content">
+                </div>
 
-            <div className="container">
-                <h2>Welcome to Emergency Shelter Management</h2>
-                <p>Here you can find and manage emergency shelters for people in need during crises or disasters.</p>
+            </div>
+            <div className="button-section">
+                <Link to="/shelterList">
+                    <button className="shelter-button">View List of Shelters</button>
+                </Link>
+                <Link to="/shelter/add">
+                    <button className="shelter-button">Add Shelter</button>
+                </Link>
             </div>
         </div>
     );

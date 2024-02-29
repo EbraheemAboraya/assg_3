@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ShelterService from '../services/service';
+import { Typography, TextField, Button, Card, CardContent, Box } from '@mui/material';
 
 const UpdateShelterForm = () => {
     const { shelterId } = useParams();
@@ -38,7 +39,7 @@ const UpdateShelterForm = () => {
         e.preventDefault();
         try {
             await ShelterService.updateShelter(shelterId, shelterData);
-            navigate('/shelters'); // Redirect to the shelters list page or wherever you see fit
+            navigate('/');
         } catch (error) {
             console.error('Failed to update shelter:', error);
             setError('Failed to update shelter.');
@@ -46,38 +47,43 @@ const UpdateShelterForm = () => {
     };
 
     return (
-        <div>
-            <h2>Update Shelter</h2>
-            {error && <p className="error">{error}</p>}
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Title:</label>
-                    <input
-                        name="title"
-                        value={shelterData.title}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label>Location:</label>
-                    <input
-                        name="location"
-                        value={shelterData.location}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label>Capacity:</label>
-                    <input
-                        type="number"
-                        name="capacity"
-                        value={shelterData.capacity}
-                        onChange={handleChange}
-                    />
-                </div>
-                <button type="submit">Update Shelter</button>
-            </form>
-        </div>
+
+        <Card variant="outlined">
+            <CardContent>
+                <Typography variant="h2">Update Shelter</Typography>
+                {error && <Typography color="error">{error}</Typography>}
+                <form onSubmit={handleSubmit}>
+                    <div style={{ marginTop: '20px' }}>
+                        <TextField
+                            label="Title"
+                            name="title"
+                            value={shelterData.title}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div style={{ marginTop: '20px' }}>
+                        <TextField
+                            label="Location"
+                            name="location"
+                            value={shelterData.location}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div style={{ marginTop: '20px' }}>
+                        <TextField
+                            label="Capacity"
+                            type="number"
+                            name="capacity"
+                            value={shelterData.capacity}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div style={{ marginTop: '15px' }}>
+                        <Button type="submit" variant="contained">Update Shelter</Button>
+                    </div>
+                </form>
+            </CardContent>
+        </Card>
     );
 };
 

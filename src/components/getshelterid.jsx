@@ -1,7 +1,9 @@
-// Import useParams from react-router-dom
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ShelterService from '../services/service';
+import Typography from '@mui/material/Typography';
+import CardContent from '@mui/material/CardContent';
+import Card from '@mui/material/Card';
 
 const ShelterById = () => {
     const { shelterId } = useParams(); // Access the shelterId parameter from the URL
@@ -32,12 +34,20 @@ const ShelterById = () => {
     if (!shelter) return <div>No shelter found</div>;
 
     return (
-        <div>
-            <h2>Shelter Details</h2>
-            <p><strong>Location:</strong> {shelter.location}</p>
-            <p><strong>Title:</strong> {shelter.title}</p>
-            <p><strong>Capacity:</strong> {shelter.capacity}</p>
-        </div>
+        <Card variant="outlined" style={{ marginBottom: '20px' }}>
+            <CardContent>
+                <Typography variant="h2" gutterBottom>Shelter Details</Typography>
+                <Typography variant="body1" gutterBottom>
+                    <strong>Location:</strong> {shelter.location}
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                    <strong>Title:</strong> {shelter.title}
+                </Typography>
+                <Typography variant="body1">
+                    <strong>Capacity:</strong> {shelter.capacity}
+                </Typography>
+            </CardContent>
+        </Card>
     );
 };
 

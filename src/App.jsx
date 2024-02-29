@@ -5,7 +5,15 @@ import ShelterManagement from './components/main';
 import AddShelter from './components/addShelter';
 import GetShelterById from './components/getshelterid';
 import UpdateShelter from './components/updateShelter';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
 import './App.css';
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  }
+});
 
 const App = () => {
   return (
@@ -13,7 +21,7 @@ const App = () => {
       <div>
         <Routes>
           <Route path="/" element={<ShelterManagement />} />
-          <Route path="/shelter" element={<GetAllShelters />} />
+          <Route path="/shelterList" element={<GetAllShelters />} />
           <Route path="shelter/add" element={<AddShelter />} />
           <Route path="/shelter/:shelterId" element={<GetShelterById />} />
           <Route path="/update/:shelterId" element={<UpdateShelter />} />

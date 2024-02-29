@@ -1,10 +1,9 @@
-/* eslint-disable react/react-in-jsx-scope */
-import { useEffect, useState } from 'react';
-import ShelterService from '../services/service';
-import { Card, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Typography, Button, IconButton, Paper } from '@mui/material';
+import { MdDelete, MdUpdate } from 'react-icons/md';
+import ShelterService from '../services/service';
+import '../App.css';
 const GetAllShelters = () => {
     const [shelterList, setShelterList] = useState([]);
     const [error, setError] = useState('');
@@ -38,24 +37,25 @@ const GetAllShelters = () => {
 
     return (
         <div className="shelter-container">
-            <h1 className="shelter-title">Shelters</h1>
+            <Typography variant="h1" gutterBottom className="shelter-title">Shelters</Typography>
             <div className="shelter-list">
                 {shelterList.map((shelter) => (
-                    <Card className="shelter-card" key={shelter._id}>
-                        <Card.Body>
-                            <div className="shelter-info">
-                                <h2>{shelter.title}</h2>
-                                <p><strong>Location:</strong> {shelter.location}</p>
-                                <p><strong>Capacity:</strong> {shelter.capacity}</p>
-                            </div>
-                            <div className="action-buttons">
-                                <Link to={`/update/${shelter._id}`}>
-                                    <Button variant="primary">Update</Button>
-                                </Link>
-                                <Button variant="danger" onClick={() => handleDelete(shelter._id)}>Delete</Button>
-                            </div>
-                        </Card.Body>
-                    </Card>
+                    <Paper key={shelter._id} elevation={3} className="shelter-card">
+                        <div className="shelter-info">
+                            <img src="/image/A5191.png" alt="Shelter Image" className="shelter-image" />
+                            <Typography variant="body1"><strong>Title:</strong> {shelter.title}</Typography>
+                            <Typography variant="body1"><strong>Location:</strong> {shelter.location}</Typography>
+                            <Typography variant="body1"><strong>Capacity:</strong> {shelter.capacity}</Typography>
+                        </div>
+                        <div className="action-buttons">
+                            <Link to={`/update/${shelter._id}`} style={{ textDecoration: 'none' }}>
+                                <Button variant="contained" color="primary" startIcon={<MdUpdate />}>Update</Button>
+                            </Link>
+                            <IconButton color="error" onClick={() => handleDelete(shelter._id)} aria-label="delete">
+                                <MdDelete />
+                            </IconButton>
+                        </div>
+                    </Paper>
                 ))}
             </div>
         </div>
